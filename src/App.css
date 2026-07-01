@@ -1,0 +1,381 @@
+*{
+  padding: 0;
+  margin: 0;  
+  box-sizing: border-box;
+}
+html,body,#root{
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+main{
+  position: relative;
+}
+
+#canvas-elem:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+   background-image:url(/background-l.png);
+  background-repeat:no-repeat;
+  background-size: cover;
+  transition: all 0.3s linear;
+}
+
+section{
+  min-height: 100vh;
+  /* border: solid 1px #fff; */
+  position: relative;
+  z-index: 9;
+}
+
+#section1 {
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    .nav-elem{
+      cursor: pointer;
+      min-height: 2rem;
+    } 
+    #arrow{
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s linear;
+
+      h3{
+        font-size: 1rem;
+      }
+    }
+    .nav-elem:nth-child(2){
+      i{color: red;
+    }
+   }
+    svg{
+      max-width: 16rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .middle{
+    display: flex;
+
+    .left, .right{
+     width: 50%;
+    }
+    .left{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 6rem;
+    }
+    h1{
+      font-size: 120px;
+      line-height: 6rem;
+      text-align: right;
+      font-family:"GT Sectra Display", Times, Georgia, serif;
+      letter-spacing: -5px;
+    }
+  }
+  .bottom{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 3rem;
+    
+    .left, .right{
+      width: 50%;
+      display: flex;
+    }
+    .right{
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      padding-left: 6rem;
+      padding-top: 5rem;
+      h1{
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 300;
+        width: 22rem;
+      }
+      h2{
+        font-size: 1rem;
+        font-weight: 400;
+        width: 25rem;
+        width: 22rem;
+        /* opacity: ; */
+        color: #A0A8DCB3;
+      }
+    }
+  }
+
+  .first-line{
+    width: 43rem;
+    height: 1px;
+    background-color: rgb(192, 84, 84);
+    position: absolute;
+    top: 32rem;
+    left: 10rem;
+    transform: rotate(45deg);
+  }
+
+  .second-line{
+     width: 10rem;
+    height: 1px;
+    background-color: rgba(192, 84, 84, 0.678);
+    position: absolute;
+    top: 24rem;
+    right: 33rem;
+    transform: rotate(-40deg);
+  }
+}
+
+#section2{
+  .titles{
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; */
+    padding-inline: 10rem;  
+    /* //for horizontal padding */
+    margin-block: 11rem;
+    .title{
+      gap: 4rem;
+      display: flex;
+      opacity: .3;
+      padding-block: 1.6rem;
+      transition: all 0.3s linear;
+      cursor:pointer;
+
+      h1{
+        font-size: 4.5rem;
+        font-weight: 100;
+        letter-spacing: .1rem;
+        line-height: 1;
+      }
+
+      small{
+        margin-top: .6rem;
+      }
+    }
+
+    .title:hover{
+      opacity: 1;
+    }
+  }
+}
+
+main:has(#section2 .title:hover) #canvas-elem::after{
+  opacity: 0;
+}
+
+.images{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    transition: all .3s linear;
+  }
+}
+
+main:has(#section2 .title[img-title="tommorowland"]:hover) .images #tommorowland{
+  opacity: 1;
+  background-color: rgb(4, 4, 26);
+}
+
+main:has(#section2 .title[img-title="navy-pier"]:hover) .images #navy-pier{
+  opacity: 1;
+  background-color: rgb(4, 4, 26);
+}
+main:has(#section2 .title[img-title="msi-chicago"]:hover) .images #msi-chicago{
+  opacity: 1;
+  background-color: rgb(5, 5, 36);
+}
+main:has(#section2 .title[img-title="phone"]:hover) .images #phone{
+  opacity: 1;
+  background-color: rgb(51, 7, 42);
+}
+main:has(#section2 .title[img-title="kikk"]:hover) .images #kikk{
+  opacity: 1;
+  background-color: rgb(28, 28, 110);
+}
+main:has(#section2 .title[img-title="kennedy"]:hover) .images #kennedy{
+  opacity: 1;
+  background-color: rgb(29, 29, 36);
+}
+main:has(#section2 .title[img-title="opera"]:hover) .images #opera{
+  opacity: 1;
+  background-color: rgb(105, 11, 11);
+}
+
+#section3{
+  margin-top: 10rem;
+  padding-top: 3rem;
+  padding-inline: 28rem;
+  position: relative;
+  z-index: 0;
+  color: #fff;
+  min-height: initial;
+
+  .top{
+    display: flex;
+    width: 100%;
+    /* background-color: #fff; */
+  }
+
+    .left,.right{
+      width: 50%;
+      gap: 2rem;
+    }
+   .top .left #heading{
+      font-size: .9rem;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: .6;
+      letter-spacing: .15rem;
+   }
+   .top .left #below{
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    z-index: -5;
+   }
+}
+
+#section4{
+  min-height: initial;
+  .bottom{
+    display: flex;
+    
+
+    .left,.right{
+      width: 50%;
+      gap: 2rem;
+    }
+    .right{
+      display: flex;
+      color: #ffff;
+      padding-inline: 2rem;
+      font-family: 'Courier New', Courier, monospace;
+      /* background-color: #fff; */
+      font-size:.7rem;
+      margin-right: 2rem;
+      opacity: .7;
+      font-weight: 200;
+      padding-right: 20rem;
+
+      h3{
+        line-height: 1.5rem;
+      }
+    }
+  }
+}
+
+#discover{
+
+  height: 23rem;
+  width: 100%;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  padding-top: 1.4rem;
+  
+
+  .left,.right{
+  width: 50%;
+  }
+  
+  .right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .2rem;
+    padding-left:1rem;
+    /* background-color: #000; */
+
+    h3{
+      font-size: 1.3rem;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    #line{
+      align-items: flex-end;
+      height: 3px;
+      width: 8rem;
+      background-color: red;
+      transition: all .3s linear;
+      cursor:pointer;
+    }
+  }
+}
+
+main:has(#discover .right h3:hover) .right #line{
+  width: 12rem;
+}
+
+#goodshit{
+  width: 100%;
+  display: flex;
+
+  .left,.right{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    /* align-items: flex-end; */
+    text-align: end;
+    margin-right: 19rem;
+  }
+  .right p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+main:has(#section1 #arrow:hover) #arrow{
+  gap: .1rem;
+}
+
+ .logo {
+        font-family: "Montserrat", "Poppins", Arial, sans-serif;
+       font-size: 92px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        fill: #ffffff;
+        cursor:'pointer'
+      }
+
+      .accent {
+        font-weight: 400;
+      }
+
+.line{
+  transition: all 0.3s linear;
+}
+
+.nav-elem:hover .line {
+     stroke: #ff0000;
+     transform: scaleX(1.3) translateY(-45px);
+     stroke-width: 6px
+    }
